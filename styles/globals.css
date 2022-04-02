@@ -20,6 +20,6 @@
   }
 
   .brand {
-    @apply relative flex h-32 w-52 transform cursor-pointer overflow-hidden rounded-lg border-[3px] border-[#f9f9f9] border-opacity-10 shadow-xl transition  duration-300 hover:scale-105 hover:border-opacity-80 hover:shadow-2xl sm:h-36 sm:w-64;
+    @apply relative flex h-32 w-52 transform cursor-pointer overflow-hidden rounded-lg border-[3px] border-[#f9f9f9] border-opacity-10  shadow-xl transition duration-300 hover:scale-105 hover:border-opacity-80 hover:shadow-2xl sm:h-36 sm:w-64;
   }
 }
