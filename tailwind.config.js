@@ -11,11 +11,12 @@ module.exports = {
       }),
     },
     fontFamily: {
-      body: ['Montserrat', 'sans-serif'],
+      body: ['Quicksand', 'sans-serif'],
     },
   },
+  plugins: [require('tailwind-scrollbar-hide'), require('tailwind-scrollbar')],
   variants: {
     extends: {},
+    scrollbar: ['rounded'],
   },
-  plugins: [],
-}
+};
