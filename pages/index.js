@@ -1,8 +1,8 @@
-import { getSession, useSession } from 'next-auth/client'
-import App from '../components/App'
-import Head from 'next/head'
-import Header from '../components/Header'
-import Hero from '../components/Hero'
+import { getSession, useSession } from 'next-auth/client';
+import App from '../components/App';
+import Head from 'next/head';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
 
 export default function Home({
   popularMovies,
@@ -10,7 +10,8 @@ export default function Home({
   topRatedMovies,
   topRatedShows,
 }) {
-  const [session, loading] = useSession()
+  const [session, loading] = useSession();
+
   return (
     <div className="">
       <Head>
@@ -30,11 +31,11 @@ export default function Home({
         />
       )}
     </div>
-  )
+  );
 }
 
 export const getServerSideProps = async (context) => {
-  const session = await getSession(context)
+  const session = await getSession(context);
 
   const [
     popularMoviesRes,
@@ -54,7 +55,7 @@ export const getServerSideProps = async (context) => {
     fetch(
       `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&language=en-US&page=1`
     ),
-  ])
+  ]);
 
   const [popularMovies, popularShows, topRatedMovies, topRatedShows] =
     await Promise.all([
@@ -62,7 +63,7 @@ export const getServerSideProps = async (context) => {
       popularShowsRes.json(),
       topRatedMoviesRes.json(),
       topRatedShowsRes.json(),
-    ])
+    ]);
 
   return {
     props: {
@@ -72,5 +73,5 @@ export const getServerSideProps = async (context) => {
       topRatedMovies: topRatedMovies.results,
       topRatedShows: topRatedShows.results,
     },
-  }
-}
+  };
+};

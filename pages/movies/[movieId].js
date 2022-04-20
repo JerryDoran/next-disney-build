@@ -2,7 +2,8 @@ import { PlusIcon, XIcon } from '@heroicons/react/solid';
 import { getSession, useSession } from 'next-auth/client';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import Header from '../../components/Header';
 import Hero from '../../components/Hero';
@@ -11,10 +12,17 @@ function Movie({ result }) {
   const BASE_URL = 'https://image.tmdb.org/t/p/original/';
   const [session] = useSession();
   const [showPlayer, setShowPlayer] = useState(false);
-  
+  const router = useRouter();
+
   const index = result.videos.results.findIndex(
     (element) => element.type === 'Trailer'
   );
+
+  useEffect(() => {
+    if (!session) {
+      router.push('/');
+    }
+  }, []);
 
   return (
     <div>

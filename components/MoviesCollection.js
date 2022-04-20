@@ -1,6 +1,7 @@
 import MovieThumbnail from './MovieThumbnail';
 
 function MoviesCollection({ results, title }) {
+  // console.log(results);
   return (
     <div className="relative my-10 mx-auto flex max-w-[1400px] flex-col space-y-2 px-8">
       <h2 className="font-semibold">{title}</h2>
